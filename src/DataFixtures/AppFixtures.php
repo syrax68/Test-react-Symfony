@@ -44,7 +44,7 @@ class AppFixtures extends Fixture
                 $manager->persist($car);
                 for ($k = 0; $k < 5; $k++) {
                     $comment = new Comment();
-                    $comment->setContent('test')
+                    $comment->setContent($faker->paragraph(1))
                             ->setUser($user)
                             ->setCar($car);
                     $manager->persist($comment);

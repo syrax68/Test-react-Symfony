@@ -5,10 +5,22 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CarRepository::class)
+ * @ApiResource(
+ *  collectionOperations={"GET"},
+ *  itemOperations={"GET"},
+ *  attributes={
+ *      "order":{"price":"desc"}
+ *  },
+ *  normalizationContext={
+ *      "groups"={"cars_read"}
+ *  }
+ * )
  */
 class Car
 {
@@ -21,21 +33,25 @@ class Car
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars_read","comments_read"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars_read","comments_read"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"cars_read","comments_read"})
      */
     private $price;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="car")
+     * * @Groups({"cars_read"})
      */
     private $comments;
 
