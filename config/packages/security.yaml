@@ -17,6 +17,14 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        car:
+            pattern: ^/api/cars
+            stateless: true
+            lazy: true
+        user:
+            pattern: ^/api/users
+            stateless: true
+            lazy: true
         login:
             pattern: ^/api/login
             stateless: true
@@ -44,4 +52,7 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/cars, roles: PUBLIC_ACCESS }
+        - { path: ^/api/users, roles: PUBLIC_ACCESS }
+        - { path: ^/api/comments, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
