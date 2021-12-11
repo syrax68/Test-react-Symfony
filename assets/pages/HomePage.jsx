@@ -57,10 +57,11 @@ const HomePage = () => {
             {paginatedCars && paginatedCars.map((car,key)=>
             <form key={key} >
                 <div className="card mt-2">
-                    <h5 className="card-header">{car.name}</h5>
-                    <div className="card-body">
-                        <p className="card-text">{car.description}</p>
-                        <div className='container'>
+                    <h5 className="card-header">Nom : {car.name.toUpperCase()}</h5>
+                    <div className='container'>  
+                        <div className="card-body">
+                            <h4>Description:</h4>
+                            <p className="card-text"> {car.description}</p>
                             {window.localStorage.getItem('authToken') &&
                             <>
                                 <h4>listes des commentaires</h4>
