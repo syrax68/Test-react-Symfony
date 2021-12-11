@@ -1,21 +1,25 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import authApi from '../helpers/auth.api'
 
 const Navbar = () =>{
+    const handleLogout = () =>{
+        authApi.logout();
+        window.location.href= '/'
+    }
+
     return(
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">
                 <div>
-                    <a className="navbar-brand" href="#">Accueil</a>
-                    <a className="navbar-brand" href="#/users">Clients</a>
+                    <NavLink className="navbar-brand" to="/">Accueil</NavLink>
+                    <NavLink className="navbar-brand" to="/users">Clients</NavLink>
                 </div>
                 <div>
-                    <button className="btn btn-submit" type="button">
-                        Inscription
-                    </button>
-                    <button className="btn btn-success" type="button">
+                    <NavLink className="btn btn-success" to="/login" type="button">
                         Connexion
-                    </button>
-                    <button className="btn btn-warning" type="button">
+                    </NavLink>
+                    <button className="ml-2 btn btn-warning" onClick={handleLogout} type="button">
                         Deconnexion
                     </button>
                 </div>

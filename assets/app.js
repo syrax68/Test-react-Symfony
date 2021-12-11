@@ -16,15 +16,19 @@ import './styles/app.css';
 import './bootstrap';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
+import LoginPage from './pages/LoginPage';
+import authApi from './helpers/auth.api';
 
+authApi.setup();
 const App = () =>{
     return (
     <HashRouter>
         <Navbar />
         <div className='container pt-5'>
             <Switch>
+                <Route path="/login" component={LoginPage} />  
                 <Route path="/users" component={UserPage} />
-                <Route path="/" component={HomePage} />  
+                <Route path="/" component={HomePage} /> 
             </Switch>
         </div>
     </HashRouter>

@@ -33,7 +33,7 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
-            pattern:   ^/api
+            pattern:   ^/api/comments
             stateless: true
             jwt: ~
         main:
@@ -55,4 +55,4 @@ security:
         - { path: ^/api/cars, roles: PUBLIC_ACCESS }
         - { path: ^/api/users, roles: PUBLIC_ACCESS }
         - { path: ^/api/comments, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        #- { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }

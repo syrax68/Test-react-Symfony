@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "normalization_context"={
  *              "groups"={"comments_subresource"}
  *          }
- *      }
+ *      },
  *  },
  *  attributes={
  *      "pagination_enabled"=true,
@@ -51,7 +51,7 @@ class Comment
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"comments_read","comments_subresource"})
+     * @Groups({"comments_read","comments_subresource","cars_read"})
      * @Assert\NotBlank(message="La commentaire est obligatoire")
      */
     private $content;

@@ -15,8 +15,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ApiResource(
- *  collectionOperations={"GET","POST"},
- *  itemOperations={"GET","POST"},
+ *  collectionOperations={"GET"},
+ *  itemOperations={"GET"},
  *  subresourceOperations={
  *      "comments_get_subresource"={"path"="/user/{id}/comments"}
  *  },
